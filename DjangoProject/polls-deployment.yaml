@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: polls
+  labels:
+    app: polls
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: polls 
+  template:
+    metadata:
+      labels:
+        app: polls
+    spec:
+      containers:
+      - name: polls-app
+        image: dockerbogo/django-polls:1.0.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+

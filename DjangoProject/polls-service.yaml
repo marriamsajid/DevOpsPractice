@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: polls
+  labels:
+    app: polls
+spec:
+  type: LoadBalancer
+  selector:
+    app: polls 
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: polls
